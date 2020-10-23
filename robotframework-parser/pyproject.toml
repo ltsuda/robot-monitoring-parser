@@ -1,8 +1,11 @@
 [tool.poetry]
-name = "report-parser"
+name = "robot-parser"
 version = "0.1.0"
 description = ""
-authors = ["ltsuda <leonardo.tsuda@icloud.com>"]
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.scripts]
+robot-parser = "robot_parser.parser:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"

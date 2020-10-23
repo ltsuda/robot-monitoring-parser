@@ -1,4 +1,4 @@
-from report_parser import __version__
+from robot_parser import __version__
 
 
 def test_version():
