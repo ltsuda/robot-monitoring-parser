@@ -22,5 +22,5 @@ class TestStatus(ResultVisitor):
     def get_test_status(inpath):
         result = ExecutionResult(inpath)
         result.visit(TestStatus())
-        tests_object['tests'] = test_list
+        tests_object['items'] = test_list
         return tests_object
