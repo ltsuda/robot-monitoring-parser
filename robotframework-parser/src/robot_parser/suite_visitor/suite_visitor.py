@@ -1,12 +1,13 @@
 from robot.api import ExecutionResult, ResultVisitor
 
-suite_object = []
+suites_object = {}
+suite_list = []
 
 
 class SuiteStatus(ResultVisitor):
 
     def start_suite(self, suite):
-        global suite_object
+        global suite_list
         stats = suite.statistics
         object = {
             'name': suite,
@@ -18,10 +19,11 @@ class SuiteStatus(ResultVisitor):
             'endtime': suite.endtime,
             'elapsed(s)': suite.elapsedtime/float(1000)
         }
-        suite_object.append(object)
+        suite_list.append(object)
 
     @staticmethod
     def get_suite_status(inpath):
         result = ExecutionResult(inpath)
         result.visit(SuiteStatus())
-        return suite_object
+        suites_object['suites'] = suite_list
+        return suites_object
