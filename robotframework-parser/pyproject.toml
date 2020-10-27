@@ -2,10 +2,10 @@
 name = "robot-parser"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Leonardo Tsuda <leonardo.tsuda@gmail.com>"]
 
 [tool.poetry.scripts]
-robot-parser = "robot_parser.parser:main"
+robot-parser = "robot_parser.robot-parser:cli"
 
 [tool.poetry.dependencies]
 python = "^3.8"
