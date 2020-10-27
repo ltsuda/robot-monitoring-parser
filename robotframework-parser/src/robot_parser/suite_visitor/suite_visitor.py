@@ -25,5 +25,5 @@ class SuiteStatus(ResultVisitor):
     def get_suite_status(inpath):
         result = ExecutionResult(inpath)
         result.visit(SuiteStatus())
-        suites_object['items'] = suite_list
+        suites_object['suites'] = suite_list
         return suites_object
