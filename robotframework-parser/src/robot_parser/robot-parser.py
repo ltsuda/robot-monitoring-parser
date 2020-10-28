@@ -8,19 +8,19 @@ def cli():
     parser = argparse.ArgumentParser(
         prog='Robotframework XML report parser to JSON',
         description='This tool parses the robotframework output.xml result file, transforms into a JSON'
-                    ' payload with suite and test metrics and send that to the REST API server.'
+                    ' payload with suite and test metrics and send that to the REST API server or save locally.'
     )
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('--jenkins',  dest='jenkins', action='store_true')
-    group.add_argument('--no-jenkins', dest='jenkins',  action='store_false')
+    group.add_argument('--jenkins',  dest='jenkins', action='store_true', help="get jenkins pipeline's number")
+    group.add_argument('--no-jenkins', dest='jenkins',  action='store_false', help="don't get jenkins pipeline 's number, use a random string instead")
     parser.add_argument('--metrics', dest='metrics',
-                        choices=['suite', 'test', 'both'], default='both')
-    parser.add_argument('--inpath', dest='inpath', required=True)
-    parser.add_argument('--server', dest='server', required=True)
+                        choices=['suite', 'test', 'both'], default='both', help="select suite, test or both level metrics")
+    parser.add_argument('--inpath', dest='inpath', required=True, help="path of the robotframework result xml file")
+    parser.add_argument('--server', dest='server', required=True, help="server address to send parsed metrics")
     parser.add_argument('--to-console', dest='console',
-                        action='store_true', default=False)
+                        action='store_true', default=False, help="debug output to console")
     parser.add_argument('--local', dest='local', action='store',
-                        type=argparse.FileType('w', encoding='UTF-8'))
+                        type=argparse.FileType('w', encoding='UTF-8'), help="save metrics file locall; tip: use json as file extension")
     parser_args = parser.parse_args()
 
     pipeline_id = ''
