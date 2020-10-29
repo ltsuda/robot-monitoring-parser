@@ -12,6 +12,7 @@ class TestStatus(ResultVisitor):
             'parent': test.parent,
             'name': test.name,
             'status': test.status,
+            'message': test.message,
             'starttime': test.starttime,
             'endtime': test.endtime,
             'elapsed(s)': test.elapsedtime/float(1000)
