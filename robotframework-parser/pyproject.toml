@@ -5,16 +5,18 @@ description = ""
 authors = ["Leonardo Tsuda <leonardo.tsuda@gmail.com>"]
 
 [tool.poetry.scripts]
-robot-parser = "robot_parser.robot-parser:cli"
+robot-parser = "robot_parser.robot_parser:cli"
 
 [tool.poetry.dependencies]
 python = "^3.8"
 robotframework = "^3.2.2"
 requests = "^2.24.0"
+pytz = "^2020.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 autopep8 = "^1.5.4"
+black = "^20.8b1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
